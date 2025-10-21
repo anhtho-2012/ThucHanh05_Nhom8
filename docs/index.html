@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Minh họa ảnh và video MP4</title>
+  <style>
+    /* Đặt bố cục canh giữa theo cả chiều dọc và chiều ngang */
+    :root {
+      --max-width: 900px;
+      --gap: 1.25rem;
+      --bg: #f8f9fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: #111827;
+    }
+
+    .page {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+
+    .card {
+      width: 100%;
+      max-width: var(--max-width);
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+      text-align: center; /* canh giữa nội dung */
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
+
+    p.lead {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    figure {
+      margin: 0 0 var(--gap);
+    }
+
+    img, video {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 800px; /* giới hạn chiều rộng */
+      height: auto;
+      border-radius: 8px;
+      background: #000; /* khi video chưa load */
+    }
+
+    .media-row {
+      display: flex;
+      flex-direction: column; /* xếp theo hàng dọc */
+      align-items: center;    /* canh giữa theo chiều ngang */
+      gap: 1rem;
+    }
+
+    /* Bỏ media query cho layout grid cạnh nhau */
+    /*
+    @media (min-width: 760px) {
+      .media-row {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+    */
+
+    figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="card" role="main">
+      <h1>Minh họa: Ảnh và video MP4</h1>
+      <p class="lead">Trang ví dụ hiển thị một hình ảnh và một video MP4 với bố cục được canh giữa. Sử dụng thẻ <code>&lt;img&gt;</code> và <code>&lt;video&gt;</code> kèm thuộc tính điều khiển (controls).</p>
+
+      <div class="media-row" aria-live="polite">
+        <!-- Ảnh -->
+        <figure>
+          <!-- Thay "ảnh.jpg" bằng đường dẫn tới file ảnh của bạn -->
+          <img src="ảnh.jpg" alt="Mô tả ngắn về ảnh" width="800" height="450">
+          <figcaption>Hình minh họa (thay bằng ảnh thực tế của bạn)</figcaption>
+        </figure>
+
+        <!-- Video MP4 -->
+        <figure>
+          <!-- Thay "poster.jpg" bằng ảnh bìa nếu có, và "video.mp4" bằng đường dẫn tới file MP4 -->
+          <video controls preload="metadata" poster="poster.jpg">
+            <source src="video.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ thẻ video. Bạn có thể
+            <a href="video.mp4">tải video xuống tại đây</a>.
+          </video>
+          <figcaption>Video MP4 với điều khiển (play/pause/volume).</figcaption>
+        </figure>
+      </div>
+
+      <footer role="contentinfo">
+        <div>© 2025 do-van-thanh. All rights reserved.</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
